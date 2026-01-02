@@ -1,0 +1,561 @@
+/* CSS Variables for themes */
+
+
+
+
+:root {
+    --bg-color: #fff;
+    --text-color: #222;
+    --primary-color: #cce9bd;
+    --secondary-color: #cce9bd;
+    --btn-bg: var(--primary-color);
+    --btn-text: #fff;
+    --skill-bg: #eee;
+    --gpa-bg: #ddd;
+}
+
+body.dark {
+    --bg-color: #2C2C2C;
+    --text-color: #eee;
+    --btn-bg: #cce9bd;
+    --skill-bg: #2C2C2C;
+    --gpa-bg: #4b5563;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin: 0;
+    /* keep logo compact and let flex layout handle spacing */
+}
+
+/* Let logo sit to the left and nav items to the right */
+.logo {
+    margin-right: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Mobile nav toggle (hidden on larger screens) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* When nav is opened on mobile add an "open" class to show the menu */
+.nav-links.open {
+    display: flex;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.25rem;
+}
+
+.section {
+    margin-bottom: 5rem;
+}
+
+.home-section {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.home-section h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    margin-left: 0;
+    line-height: 1.05;
+}
+
+.social-icons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #cce9bd;
+    /* Purple border */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cce9bd;
+    /* Purple icon */
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.social-btn:hover {
+    background-color: #cce9bd;
+    color: white;
+    transform: scale(1.1);
+}
+
+.home-section .btn-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    min-width: 140px;
+    /* Ensures consistent width */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    /* Ensures vertical centering */
+}
+
+button.btn,
+a.btn {
+    all: unset;
+    /* Reset browser default styles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    min-width: 140px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.about-section h2,
+.projects-section h2,
+.contact-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.about-card {
+    background-color: var(--bg-color);
+    width: 48%;
+    max-width: 480px;
+    min-width: 280px;
+    min-height: 300px;
+    padding: 1.6rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-card {
+    align-items: center;
+    text-align: center;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+/* Make profile image slightly larger on larger screens and fluid */
+@media (min-width: 900px) {
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.hire-btn {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.skills-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.skill {
+    margin-bottom: 1.3rem;
+}
+
+.skill>span {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 15px;
+    background-color: var(--skill-bg);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    border-radius: 10px 0 0 10px;
+    transition: width 2s ease-in-out;
+}
+
+
+/* Ensure both cards look balanced */
+
+@media (max-width: 850px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-card {
+        width: 90%;
+    }
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 1024px) {
+    .home-section h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 0 0.75rem;
+    }
+
+    .home-section h1 {
+        font-size: 2rem;
+    }
+
+    .home-section {
+        padding: 1rem;
+    }
+
+    .btn {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .about-card {
+        width: 100%;
+        padding: 1.25rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .home-section h1 {
+        font-size: 1.8rem;
+    }
+}
+
+.gpa-bar {
+    width: 80%;
+    max-width: 600px;
+    height: 25px;
+    background-color: var(--gpa-bg);
+    border-radius: 15px;
+    margin: 1rem auto 2rem;
+    overflow: hidden;
+}
+
+.gpa-progress {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    border-radius: 15px 0 0 15px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 2s ease-in-out;
+}
+
+.skills-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.skill {
+    margin-bottom: 1.3rem;
+}
+
+.skill>span {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 15px;
+    background-color: var(--skill-bg);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    border-radius: 10px 0 0 10px;
+    transition: width 2s ease-in-out;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.project-card {
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.18s ease;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 160px;
+}
+
+.project-card:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.project-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: inherit;
+    margin-bottom: 0.6rem;
+    overflow-wrap: anywhere;
+}
+
+.project-card:focus-within,
+.project-card:focus {
+    transform: translateY(-4px);
+    outline: 3px solid rgba(204,233,189,0.5);
+    outline-offset: 4px;
+}
+
+/* If project cards include images in future */
+.project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+}
+
+/* Accessibility: focus styles */
+.nav-link:focus,
+.btn:focus,
+.social-btn:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+.contact-section form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 0.7rem 1rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.send-btn {
+    max-width: 200px;
+    align-self: center;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+    margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        right: 1rem;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.6rem;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        min-width: 160px;
+        z-index: 1100;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.5rem 0.8rem;
+    }
+    .home-section h1 {
+        font-size: 2.2rem;
+    }
+    .home-section .btn-group {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    .btn {
+        width: 100%;
+    }
+}
